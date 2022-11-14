@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "IndexProduct";
+}
+@model List<Product>
+
+
+
+
+    @if(TempData["status"]!=null)
+    {
+    <div class="alert alert-success" role="alert">
+        @TempData["status"]
+    </div>
+    }
+
+
+<h1>Urunler</h1>
+<td><a asp-controller="Products" asp-action="Add">Add Product</a></td>
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Color</th>
+            <th>Description</th>
+            <th>Action</th>
+           
+        </tr>
+
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Stock</td>
+                <td>@item.Color</td>
+                <td> @if(item.Description.Length>20){
+                    @item.Description.Substring(0,10)<text>...</text>
+                    }
+                    else{
+                        @item.Description 
+                    }
+
+                </td>
+                <td><a asp-controller="Products" asp-action="Remove" asp-route-id="@item.Id">Delete</a></td>
+                <td><a asp-controller="Products" asp-action="Update" asp-route-id="@item.Id">Update</a></td>
+            </tr>
+        }
+    </tbody>
+   
+
+</table>
+

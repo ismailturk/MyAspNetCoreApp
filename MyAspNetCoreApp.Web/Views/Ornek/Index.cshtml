@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Ornek Controller Index Sayfası </h1>
+
+@{
+    var name = ViewBag.Name;
+    <p>@name</p>
+    <hr />
+    <p>Id:@ViewBag.Person.Id-
+    Name:@ViewBag.Person.Name-
+    Age:@ViewBag.Person.Age</p>
+
+    <hr />
+    var id1 =ViewBag.Person.Id;
+    var name1 = ViewBag.Person.Name;
+    var age1 = ViewBag.Person.Age;
+
+    <p>Id1: @id1 -
+    Name1: @name1
+    Age1:@age1
+
+    </p>
+    <hr />
+    var yas = ViewData["age"];
+    <p>ViewData ile tasindi: @yas</p>
+    <hr />
+   
+}
